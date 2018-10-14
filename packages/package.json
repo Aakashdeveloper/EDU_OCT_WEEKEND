@@ -1,0 +1,20 @@
+{
+  "name": "dummy",
+  "version": "1.0.0",
+  "description": "this is dummy app",
+  "main": "index.js",
+  "scripts": {
+    "start":""
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "angular",
+    "node"
+  ],
+  "author": "edureka",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.4",
+    "zone.js": "^0.8.26"
+  }
+}
