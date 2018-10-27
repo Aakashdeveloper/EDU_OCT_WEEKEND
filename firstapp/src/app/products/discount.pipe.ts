@@ -5,12 +5,8 @@ import {Pipe, PipeTransform} from '@angular/core';
 })
 
 export class DiscountPipe implements PipeTransform {
-    transform(value: Number, ratio: String, type: String) {
-        if (type === '+') {
-            value = parseInt(value) + parseInt(ratio);
-        } else {
-            value = parseInt(value) - parseInt(ratio);
-        }
+    transform(value: number, ratio: number) {
+            value = value + ratio;
         return value;
     }
 }

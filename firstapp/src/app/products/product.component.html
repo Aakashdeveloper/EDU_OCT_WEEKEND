@@ -13,7 +13,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <h3>Filtered By:{{filterText}}</h3>
+                            <h3 style="color:blueviolet">Filtered By:{{filterText}}</h3>
                         </div>
                     </div>
                     <div class="table-responsive" >
@@ -36,13 +36,15 @@
                                 <tr *ngFor="let prod of products | filterProd:filterText">
                                     <td>
                                         <img [src]="prod.imageUrl"
+                                        [style.width.px]="imageWidth"
                                         *ngIf="showImage" />
                                     </td>
                                     <td>{{prod.productName | mypipe:'upper'}}</td>
                                     <td>{{prod.productCode | mypipe:'lower'}}</td>
                                     <td>{{prod.releaseDate}}</td>
-                                    <td>{{prod.price | discountPipe:'5':'-' | currency: 'INR'}}</td>
-                                    <td>{{prod.starRating}}</td>
+                                    <td [ngStyle]="{'background-color':prod.price<30 ? 'green':'red'}">{{prod.price  | currency: 'INR'}}</td>
+                                    <td><app-star [rating]="prod.starRating"
+                                        (ratingClicked)="onDataRecieve($event)"></app-star></td>
                                 </tr>
                             </tbody>
                         </table>
