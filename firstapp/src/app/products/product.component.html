@@ -13,7 +13,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <h3 style="color:blueviolet">Filtered By:{{filterText}}</h3>
+                            <h3 style="color:blueviolet">Number of producted filterd {{ (products | filterProd:filterText)?.length}}</h3>
                         </div>
                     </div>
                     <div class="table-responsive" >
@@ -39,7 +39,8 @@
                                         [style.width.px]="imageWidth"
                                         *ngIf="showImage" />
                                     </td>
-                                    <td><a [routerLink]="['/products', prod.productId]">
+                                    <td><a [routerLink]="['/productDetails', prod.productId]"
+                                        >
                                             {{prod.productName | mypipe:'upper'}}
                                         </a>
                                     </td>
@@ -54,4 +55,6 @@
                     </div>
                    
                 </div>
+
+                <!-- [queryParams]="{name:prod.productName,desc:prod.description,img:prod.imageUrl}" -->
     </div>
